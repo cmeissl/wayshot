@@ -27,4 +27,9 @@ fn main() {
     let frame = screencopy_manager.capture_output(0, &output);
     let buffer = shm_pool.create_buffer(0, 1920, 1080, 5760, Format::Argb8888);
     frame.copy(&buffer);
+
+    frame.destroy();
+    buffer.destroy();
+    shm_pool.destroy();
+    screencopy_manager.destroy();
 }
